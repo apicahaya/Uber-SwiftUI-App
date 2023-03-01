@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D59BB35C29AEED7900712C13 /* LocationSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BB35B29AEED7900712C13 /* LocationSearchViewModel.swift */; };
 		D5E4193429ADF09B0077C16C /* Uber_SwiftUI_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E4193329ADF09B0077C16C /* Uber_SwiftUI_AppApp.swift */; };
 		D5E4193829ADF09C0077C16C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5E4193729ADF09C0077C16C /* Assets.xcassets */; };
 		D5E4193B29ADF09C0077C16C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5E4193A29ADF09C0077C16C /* Preview Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D59BB35B29AEED7900712C13 /* LocationSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewModel.swift; sourceTree = "<group>"; };
 		D5E4193029ADF09B0077C16C /* Uber SwiftUI App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Uber SwiftUI App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5E4193329ADF09B0077C16C /* Uber_SwiftUI_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Uber_SwiftUI_AppApp.swift; sourceTree = "<group>"; };
 		D5E4193729ADF09C0077C16C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 		D5E4195429ADFDC50077C16C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D59BB35B29AEED7900712C13 /* LocationSearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				D5E4194B29ADF1130077C16C /* HomeView.swift in Sources */,
 				D5E4195629ADFDD30077C16C /* LocationSearchActivationView.swift in Sources */,
 				D5E4195C29AE03210077C16C /* LocationSearchResultCell.swift in Sources */,
+				D59BB35C29AEED7900712C13 /* LocationSearchViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

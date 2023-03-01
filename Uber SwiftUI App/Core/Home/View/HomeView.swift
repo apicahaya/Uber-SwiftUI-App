@@ -18,7 +18,7 @@ struct HomeView: View {
             
             
             if showLocationSearchView {
-                LocationSearchView()
+                LocationSearchView(showLocationSearchView: $showLocationSearchView)
             } else {
                 LocationSearchActivationView()
                     .padding(.top, 72)

@@ -9,10 +9,13 @@ import SwiftUI
 import MapKit
 
 struct UberMapViewRepresentable: UIViewRepresentable {
+    // MARK: - Properties
+    
     let mapView = MKMapView()
     let locationManager = LocationManager()
     @EnvironmentObject var locationSearchViewModel: LocationSearchViewModel
     
+    // MARK: - Helpers
     func makeUIView(context: Context) -> some UIView {
         mapView.delegate = context.coordinator
         mapView.isRotateEnabled = false
@@ -24,7 +27,7 @@ struct UberMapViewRepresentable: UIViewRepresentable {
     
     func updateUIView(_ uiView: UIViewType, context: Context) {
         if let coordinate = locationSearchViewModel.selectedLocationCoordinate {
-            print("DEBUG: selected location in map view is \(coordinate)")
+            context.coordinator.addAndSelectAnnotation(withCoordinate: coordinate)
         }
     }
     
@@ -33,15 +36,19 @@ struct UberMapViewRepresentable: UIViewRepresentable {
     }
 }
 
+// MARK: - MKMapViewDelegate Extension
 extension UberMapViewRepresentable {
     class MapCoordinator: NSObject, MKMapViewDelegate {
+        // MARK: - Properties
         let parent: UberMapViewRepresentable
         
+        // MARK: - Lifecycle
         init(parent: UberMapViewRepresentable) {
             self.parent = parent
             super.init()
         }
         
+        // MARK: - MKMapViewDelegate Function
         func mapView(
             _ mapView: MKMapView,
             didUpdate userLocation: MKUserLocation
@@ -61,6 +68,19 @@ extension UberMapViewRepresentable {
                 region,
                 animated: true
             )
+        }
+        
+        // MARK: - Helpers
+        
+        func addAndSelectAnnotation(withCoordinate coordinate: CLLocationCoordinate2D) {
+            parent.mapView.removeAnnotations(parent.mapView.annotations)
+            
+            let anno = MKPointAnnotation()
+            anno.coordinate = coordinate
+            parent.mapView.addAnnotation(anno)
+            parent.mapView.selectAnnotation(anno, animated: true)
+            
+            parent.mapView.showAnnotations(parent.mapView.annotations, animated: true)
         }
     }
 }
